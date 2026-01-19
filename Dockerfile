@@ -21,7 +21,7 @@ RUN dx bundle --platform web --release
 
 FROM chef AS runtime
 RUN echo "aa"
-COPY --from=builder /app/target/dx/site/release/web/ /usr/local/app
+COPY --from=builder /app/target/dx/jordan/release/web/ /usr/local/app
 RUN ls /usr/local/app/
 # set our port and make sure to listen for all connections
 ENV PORT=8080
@@ -31,4 +31,4 @@ ENV IP=0.0.0.0
 EXPOSE 8080
 
 WORKDIR /usr/local/app
-ENTRYPOINT [ "/usr/local/app/site" ]
+ENTRYPOINT [ "/usr/local/app/jordan" ]
